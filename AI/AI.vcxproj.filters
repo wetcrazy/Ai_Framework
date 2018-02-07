@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="States">
+      <UniqueIdentifier>{5cfe6ba6-61b0-45f1-aa7e-3845c5f15756}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="States\Header">
+      <UniqueIdentifier>{3fc4af23-dec3-4aaa-b833-c6638292b260}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="States\Source">
+      <UniqueIdentifier>{dcbd51d4-d95c-4707-892c-01226c670bca}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{d27a077a-8745-470a-bd96-c21db94d6ed0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes\Header Files">
+      <UniqueIdentifier>{b90dbce7-c586-413d-8399-eb9a94a02cad}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Scenes\Source Files">
+      <UniqueIdentifier>{934c8af7-1dc3-4bbc-ba73-d6cd835a88e1}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\LoadOBJ.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\LoadTGA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MeshBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StateMachine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PostOffice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StateDefault.cpp">
+      <Filter>States\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StateFish.cpp">
+      <Filter>States\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StateShark.cpp">
+      <Filter>States\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StatePrisoners.cpp">
+      <Filter>States\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StateCop.cpp">
+      <Filter>States\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\State.cpp">
+      <Filter>States\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Maze.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneBase.cpp">
+      <Filter>Scenes\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneData.cpp">
+      <Filter>Scenes\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneMaze.cpp">
+      <Filter>Scenes\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneMovement.cpp">
+      <Filter>Scenes\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneQueen.cpp">
+      <Filter>Scenes\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneReversi.cpp">
+      <Filter>Scenes\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneTicTacToe.cpp">
+      <Filter>Scenes\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneTurn.cpp">
+      <Filter>Scenes\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneGraph.cpp">
+      <Filter>Scenes\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Geometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\LoadOBJ.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\LoadTGA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\MeshBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\StateMachine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ConcreteMessages.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Message.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ObjectBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PostOffice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\StateDefault.h">
+      <Filter>States\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\StateFish.h">
+      <Filter>States\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\StateShark.h">
+      <Filter>States\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\StatePrisoners.h">
+      <Filter>States\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\StateCop.h">
+      <Filter>States\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\State.h">
+      <Filter>States\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Maze.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene.h">
+      <Filter>Scenes\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneBase.h">
+      <Filter>Scenes\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneData.h">
+      <Filter>Scenes\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneMaze.h">
+      <Filter>Scenes\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneMovement.h">
+      <Filter>Scenes\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneQueen.h">
+      <Filter>Scenes\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneReversi.h">
+      <Filter>Scenes\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneTicTacToe.h">
+      <Filter>Scenes\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneTurn.h">
+      <Filter>Scenes\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneGraph.h">
+      <Filter>Scenes\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Graph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
