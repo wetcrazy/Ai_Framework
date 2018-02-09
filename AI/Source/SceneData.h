@@ -23,6 +23,9 @@ private:
 	Vector3 m_rolecallPos;
 	Vector3 m_cop_patrol_nodes[10];
 	bool m_isFight_start;
+
+
+
 public:
 	int GetObjectCount();
 	void SetObjectCount(int objectCount);

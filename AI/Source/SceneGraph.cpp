@@ -33,21 +33,40 @@ void SceneGraph::Init()
 
 void SceneGraph::InitPath()
 {
-	std::vector<Vector3> top, bot;
+	std::vector<Vector3> left, middle, right;
 
-	top.push_back(m_graph.m_nodes[0]->pos);
+	left.push_back(m_graph.m_nodes[0]->pos);
+	left.push_back(m_graph.m_nodes[1]->pos);
+	left.push_back(m_graph.m_nodes[4]->pos);
+	left.push_back(m_graph.m_nodes[7]->pos);
+	left.push_back(m_graph.m_nodes[10]->pos);
+
+	middle.push_back(m_graph.m_nodes[0]->pos);
+	middle.push_back(m_graph.m_nodes[2]->pos);
+	middle.push_back(m_graph.m_nodes[5]->pos);
+	middle.push_back(m_graph.m_nodes[8]->pos);
+	middle.push_back(m_graph.m_nodes[10]->pos);
+
+	right.push_back(m_graph.m_nodes[0]->pos);
+	right.push_back(m_graph.m_nodes[3]->pos);
+	right.push_back(m_graph.m_nodes[6]->pos);
+	right.push_back(m_graph.m_nodes[9]->pos);
+	right.push_back(m_graph.m_nodes[10]->pos);
+
+
 }
 
 void SceneGraph::AssignPath(GameObject *go)
 {
-	switch (go->Lab11_factionType)
+	//switch (go->Lab11_factionType)
+	switch (go->Asign2_factionType)
 	{
 	case FACTION_RED:
 	{
 		int rangen = Math::RandIntMinMax(0, 2); // this rand need change according to graph
 		go->gPath.push_back(m_paths[rangen]);
 		break;
-	}		
+	}
 	case FACTION_BLUE:
 	{
 		int rangen = Math::RandIntMinMax(0, 2); // this rand need change according to graph
@@ -83,7 +102,8 @@ GameObject* SceneGraph::FetchGO(GameObject::GAMEOBJECT_TYPE type)
 void SceneGraph::Update(double dt)
 {
 	SceneBase::Update(dt);
-	spawntimerLab11 += dt;
+	//spawntimerLab11 += dt;
+	Asign2_spawntimer += dt;
 
 	//Calculating aspect ratio
 	m_worldHeight = 100.f;
@@ -152,8 +172,52 @@ void SceneGraph::Update(double dt)
 		bSpaceState = false;
 	}	
 
+	// Key Spawn
+
+	static bool b_keyState = false;
+	if (!b_keyState && Application::IsKeyPressed('Z'))
+	{
+		b_keyState = true;
+
+		GameObject *go = FetchGO(GameObject::GO_RED);
+		go->Asign2_hp = 1.0f;
+		go->Asign2_factionType = FACTION_RED;
+		go->Asign2_unitType = UNIT_SCISSOR;
+		AssignPath(go);
+		go->pos.Set(go->path.front().x, go->path.front().y, 0.0f);
+		go->target = go->pos;
+	}
+	else if (!b_keyState && Application::IsKeyPressed('X'))
+	{
+		b_keyState = true;
+
+		GameObject *go = FetchGO(GameObject::GO_RED);
+		go->Asign2_hp = 1.0f;
+		go->Asign2_factionType = FACTION_RED;
+		go->Asign2_unitType = UNIT_PAPER;
+		AssignPath(go);
+		go->pos.Set(go->path.front().x, go->path.front().y, 0.0f);
+		go->target = go->pos;
+	}
+	else if (!b_keyState && Application::IsKeyPressed('C'))
+	{
+		b_keyState = true;
+
+		GameObject *go = FetchGO(GameObject::GO_RED);
+		go->Asign2_hp = 1.0f;
+		go->Asign2_factionType = FACTION_RED;
+		go->Asign2_unitType = UNIT_ROCK;
+		AssignPath(go);
+		go->pos.Set(go->path.front().x, go->path.front().y, 0.0f);
+		go->target = go->pos;
+	}
+	else if (b_keyState)
+	{
+		b_keyState = false;
+	}
+
 	// Spawner
-	if (spawntimerLab11 >= SPAWN_TIMER)
+	/*if (spawntimerLab11 >= SPAWN_TIMER)
 	{
 		{
 			GameObject *go = FetchGO(GameObject::GO_RED);
@@ -165,15 +229,16 @@ void SceneGraph::Update(double dt)
 			go->pos.Set(go->path.front().x, go->path.front().y, 0.0f);
 			go->target = go->pos;
 		}
-	}
+	}*/
+	
 
 	// Combat
-	for (auto &go : m_goList)
+	/*for (auto &go : m_goList)
 	{
 		if (go->Lab11_factionType == NULL || go->Lab11_factionType == 0)
 			return;
 		GameObject *go1 = (GameObject*) go;
-		for (auto go : m_goList)
+		for (auto goB : m_goList)
 		{
 			if (go->Lab11_factionType == NULL || go->Lab11_factionType == 0)
 				return;
@@ -182,6 +247,63 @@ void SceneGraph::Update(double dt)
 			{
 				go2->Lab11_hp -= go1->Lab11_damage;
 			}
+		}
+	}*/
+
+	// Combat
+	for (auto goA : m_goList)
+	{
+		if (goA->active)
+			continue;
+
+		if (goA->Asign2_factionType != NULL || goA->Lab11_factionType != 0 || goA->Asign2_unitType == NULL) // check for faction and type
+			continue;
+		
+		for (auto goB : m_goList)
+		{
+			if (goB->active)
+				continue;
+
+			if (goB->Asign2_factionType != NULL || goB->Asign2_factionType != 0 || goB->Asign2_unitType == NULL) // check for faction  and type
+				continue;
+			
+			if (goA->Asign2_factionType != goB->Asign2_factionType) // check for same faction, if not then continue
+				continue;
+
+			if ((goA->pos - goB->pos).Length() <= 1) // when they touch each other
+			{
+				// Combat logic
+				if (goA->Asign2_unitType == UNIT_SCISSOR && goB->Asign2_unitType == UNIT_PAPER)
+				{
+					goB->active = false;
+				}
+				else if (goA->Asign2_unitType == UNIT_SCISSOR && goB->Asign2_unitType == UNIT_ROCK)
+				{
+					goA->active = false;
+				}
+				else if (goA->Asign2_unitType == UNIT_PAPER && goB->Asign2_unitType == UNIT_SCISSOR)
+				{
+					goA->active = false;
+				}
+				else if (goA->Asign2_unitType == UNIT_PAPER && goB->Asign2_unitType == UNIT_ROCK)
+				{
+					goB->active = false;
+				}
+				else if (goA->Asign2_unitType == UNIT_ROCK && goB->Asign2_unitType == UNIT_SCISSOR)
+				{
+					goB->active = false;
+				}
+				else if (goA->Asign2_unitType == UNIT_ROCK && goB->Asign2_unitType == UNIT_PAPER)
+				{
+					goA->active = false;
+				}
+				else if (goA->Asign2_unitType == goB->Asign2_unitType)
+				{
+					goA->active = false;
+					goB->active = false;
+				}
+			}
+			
 		}
 	}
 

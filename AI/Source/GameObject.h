@@ -98,6 +98,11 @@ struct GameObject
 	float Lab11_range;
 	float Lab11_damage;
 	float Lab11_actionTime;
+
+	// Assignment 2
+	unsigned Asign2_factionType;
+	unsigned Asign2_unitType;
+	float Asign2_hp;
 };
 
 #endif

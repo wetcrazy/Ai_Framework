@@ -7,6 +7,7 @@
 #include "Maze.h"
 #include <queue>
 #include "Graph.h"
+#include "SceneData.h"
 
 class SceneGraph : public SceneBase
 {
@@ -28,19 +29,22 @@ public:
 	void DFSOnce(GameObject *go);
 	bool AStar(GameObject *go, unsigned start, unsigned end);
 
+	enum UNITS
+	{
+		UNIT_CREEP = 1,
+		UNIT_TOWER,
+		UNIT_SCISSOR,
+		UNIT_ROCK,
+		UNIT_PAPER,
+		UNIT_TOTAL,
+	};
+
 	enum FACTIONS
 	{
 		FACTION_BLUE = 1,
 		FACTION_RED,
 		FACTION_NEUTRAL,
 		FACTION_TOTAL,
-	};
-
-	enum UNITS
-	{
-		UNIT_CREEP = 1,
-		UNIT_TOWER,
-		UNIT_TOTAL,
 	};
 
 	void InitPath();
@@ -60,6 +64,8 @@ protected:
 	unsigned m_graphKey;
 
 	float spawntimerLab11;
+
+	float Asign2_spawntimer;
 };
 
 #endif

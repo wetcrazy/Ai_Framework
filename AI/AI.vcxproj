@@ -183,6 +183,7 @@
     <ClCompile Include="Source\Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Brain.h" />
     <ClInclude Include="Source\Application.h" />
     <ClInclude Include="Source\Camera.h" />
     <ClInclude Include="Source\ConcreteMessages.h" />
