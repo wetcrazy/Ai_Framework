@@ -431,7 +431,7 @@ void SceneGraph::RenderFaction()
 
 void SceneGraph::RenderGraph()
 {
-	for (auto &i : m_graph.m_nodes)
+	for (auto i : m_graph.m_nodes)
 	{
 		modelStack.PushMatrix();
 		modelStack.Translate(i->pos.x,i->pos.y, i->pos.z);
@@ -439,7 +439,7 @@ void SceneGraph::RenderGraph()
 		RenderMesh(meshList[GEO_NODE], false);
 		modelStack.PopMatrix();
 	}
-	for (auto &i : m_graph.m_edges)
+	for (auto i : m_graph.m_edges)
 	{
 		Vector3 dir = m_graph.m_nodes[i->end]->pos - m_graph.m_nodes[i->source]->pos;
 
