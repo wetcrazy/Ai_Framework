@@ -31,9 +31,6 @@
       <UniqueIdentifier>{934c8af7-1dc3-4bbc-ba73-d6cd835a88e1}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Brain">
-      <UniqueIdentifier>{a3222c57-b6c0-4095-b1b7-a93853496a03}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp">
@@ -122,6 +119,9 @@
     </ClCompile>
     <ClCompile Include="Source\Graph.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StateBrain.cpp">
+      <Filter>States\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -230,8 +230,8 @@
     <ClInclude Include="Source\Graph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Brain.h">
-      <Filter>Brain</Filter>
+    <ClInclude Include="Source\StateBrain.h">
+      <Filter>States\Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
