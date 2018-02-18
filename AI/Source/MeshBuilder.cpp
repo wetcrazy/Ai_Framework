@@ -454,7 +454,7 @@ Mesh * MeshBuilder::GenerateLine(const std::string & meshName, Color color, floa
 {
 	Vertex v;
 	std::vector<Vertex> vertex_buffer_data;
-	v.pos.x = size;
+	/*v.pos.x = size;
 	v.color = color;
 	vertex_buffer_data.push_back(v);
 	v.pos.x = -size;
@@ -465,14 +465,21 @@ Mesh * MeshBuilder::GenerateLine(const std::string & meshName, Color color, floa
 	vertex_buffer_data.push_back(v);
 	v.pos.y = -size;
 	v.color = color;
+	vertex_buffer_data.push_back(v);*/
+
+	v.pos.Set(0, 0, 0);
+	v.color = color;
 	vertex_buffer_data.push_back(v);
-	
+
+	v.pos.Set(size, 0, 0);	
+	v.color = color;
+	vertex_buffer_data.push_back(v);
 
 	std::vector<GLuint> index_buffer_data;
 	index_buffer_data.push_back(0);
 	index_buffer_data.push_back(1);
-	index_buffer_data.push_back(2);
-	index_buffer_data.push_back(3);
+	//index_buffer_data.push_back(2);
+	//index_buffer_data.push_back(3);
 
 
 	Mesh *mesh = new Mesh(meshName);

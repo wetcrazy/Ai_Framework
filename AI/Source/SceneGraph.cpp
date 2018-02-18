@@ -40,20 +40,21 @@ void SceneGraph::InitPath()
 	left.push_back(m_graph.m_nodes[4]->pos);
 	left.push_back(m_graph.m_nodes[7]->pos);
 	left.push_back(m_graph.m_nodes[10]->pos);
+	m_paths.push_back(left);
 
 	middle.push_back(m_graph.m_nodes[0]->pos);
 	middle.push_back(m_graph.m_nodes[2]->pos);
 	middle.push_back(m_graph.m_nodes[5]->pos);
 	middle.push_back(m_graph.m_nodes[8]->pos);
 	middle.push_back(m_graph.m_nodes[10]->pos);
+	m_paths.push_back(middle);
 
 	right.push_back(m_graph.m_nodes[0]->pos);
 	right.push_back(m_graph.m_nodes[3]->pos);
 	right.push_back(m_graph.m_nodes[6]->pos);
 	right.push_back(m_graph.m_nodes[9]->pos);
 	right.push_back(m_graph.m_nodes[10]->pos);
-
-
+	m_paths.push_back(right);
 }
 
 void SceneGraph::AssignPath(GameObject *go)
@@ -64,13 +65,13 @@ void SceneGraph::AssignPath(GameObject *go)
 	case FACTION_RED:
 	{
 		int rangen = Math::RandIntMinMax(0, 2); // this rand need change according to graph
-		go->gPath.push_back(m_paths[rangen]);
+		go->gPath.push_back(m_paths[rangen][0]);
 		break;
 	}
 	case FACTION_BLUE:
 	{
-		int rangen = Math::RandIntMinMax(0, 2); // this rand need change according to graph
-		go->gPath.push_back(m_paths[rangen]);
+		//int rangen = Math::RandIntMinMax(0, 2); // this rand need change according to graph
+		//go->gPath.push_back(m_paths[rangen][0]);
 		break;
 	}
 	case FACTION_NEUTRAL:
@@ -446,7 +447,7 @@ void SceneGraph::RenderGraph()
 		modelStack.PushMatrix();
 		modelStack.Translate(m_graph.m_nodes[i->source]->pos.x, m_graph.m_nodes[i->source]->pos.y, 1.f);
 		modelStack.Rotate(Math::RadianToDegree(atan2(dir.y, dir.x)), 0, 0, 1);
-		modelStack.Scale((m_graph.m_nodes[i->source]->pos - m_graph.m_nodes[i->end]->pos).Length(), 1, 1);
+		modelStack.Scale(dir.Length(), 1, 1);
 		RenderMesh(meshList[GEO_LINE], false);
 		modelStack.PopMatrix();
 	}

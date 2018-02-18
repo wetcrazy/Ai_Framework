@@ -49,12 +49,13 @@ public:
 
 	void InitPath();
 	void AssignPath(GameObject *go);
-	std::vector<unsigned int> m_paths;
 	void RenderFaction();
 
 protected:
 
 	std::vector<GameObject *> m_goList;
+	std::vector <std::vector<Vector3>> m_paths;
+	//std::vector <unsigned int> m_paths;
 	float m_speed;
 	float m_worldWidth;
 	float m_worldHeight;

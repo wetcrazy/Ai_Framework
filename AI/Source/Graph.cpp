@@ -82,9 +82,10 @@ unsigned Graph::NearestNode(const Vector3 & pos)
 	for (unsigned i = 0; i < m_nodes.size(); ++i)
 	{
 		float tempdisplace = (m_nodes[i]->pos - pos).Length();
-		if (displacement < tempdisplace)
+		if (displacement > tempdisplace)
 		{
-
+			displacement = tempdisplace;
+			result = i;
 		}
 	}
 
