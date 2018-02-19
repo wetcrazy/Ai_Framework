@@ -1,1 +1,10 @@
-﻿
+﻿  SceneGraph.cpp
+Source\SceneGraph.cpp(116): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+Source\SceneGraph.cpp(213): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+Source\SceneGraph.cpp(229): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating code
+  1 of 1507 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  AI.vcxproj -> C:\Users\Ryane\Documents\Ai_Framework\Release\AI.exe

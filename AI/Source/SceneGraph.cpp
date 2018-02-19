@@ -40,20 +40,29 @@ void SceneGraph::InitPath()
 	left.push_back(m_graph.m_nodes[4]->pos);
 	left.push_back(m_graph.m_nodes[7]->pos);
 	left.push_back(m_graph.m_nodes[10]->pos);
-	m_paths.push_back(left);
 
 	middle.push_back(m_graph.m_nodes[0]->pos);
 	middle.push_back(m_graph.m_nodes[2]->pos);
 	middle.push_back(m_graph.m_nodes[5]->pos);
 	middle.push_back(m_graph.m_nodes[8]->pos);
 	middle.push_back(m_graph.m_nodes[10]->pos);
-	m_paths.push_back(middle);
-
+	
 	right.push_back(m_graph.m_nodes[0]->pos);
 	right.push_back(m_graph.m_nodes[3]->pos);
 	right.push_back(m_graph.m_nodes[6]->pos);
 	right.push_back(m_graph.m_nodes[9]->pos);
 	right.push_back(m_graph.m_nodes[10]->pos);
+	
+	m_paths.push_back(left);
+	m_paths.push_back(middle);
+	m_paths.push_back(right);
+
+	std::reverse(left.begin(), left.end());
+	std::reverse(middle.begin(), middle.end());
+	std::reverse(right.begin(), right.end());
+
+	m_paths.push_back(left);
+	m_paths.push_back(middle);
 	m_paths.push_back(right);
 }
 
@@ -184,33 +193,42 @@ void SceneGraph::Update(double dt)
 		go->Asign2_hp = 1.0f;
 		go->Asign2_factionType = FACTION_RED;
 		go->Asign2_unitType = UNIT_SCISSOR;
-		AssignPath(go);
-		go->pos.Set(go->path.front().x, go->path.front().y, 0.0f);
+		//go->pos.Set(go->path.front().x, go->path.front().y, 0.0f);
+		go->pos = m_graph.m_nodes[0]->pos;
 		go->target = go->pos;
+		AssignPath(go);
 	}
-	else if (!b_keyState && Application::IsKeyPressed('X'))
+	else if (b_keyState)
+	{
+		b_keyState = false;
+	}
+	if (!b_keyState && Application::IsKeyPressed('X'))
 	{
 		b_keyState = true;
 
 		GameObject *go = FetchGO(GameObject::GO_RED);
 		go->Asign2_hp = 1.0f;
 		go->Asign2_factionType = FACTION_RED;
-		go->Asign2_unitType = UNIT_PAPER;
-		AssignPath(go);
+		go->Asign2_unitType = UNIT_PAPER;	
 		go->pos.Set(go->path.front().x, go->path.front().y, 0.0f);
 		go->target = go->pos;
+		AssignPath(go);
 	}
-	else if (!b_keyState && Application::IsKeyPressed('C'))
+	else if (b_keyState)
+	{
+		b_keyState = false;
+	}
+	if (!b_keyState && Application::IsKeyPressed('C'))
 	{
 		b_keyState = true;
 
 		GameObject *go = FetchGO(GameObject::GO_RED);
 		go->Asign2_hp = 1.0f;
 		go->Asign2_factionType = FACTION_RED;
-		go->Asign2_unitType = UNIT_ROCK;
-		AssignPath(go);
+		go->Asign2_unitType = UNIT_ROCK;	
 		go->pos.Set(go->path.front().x, go->path.front().y, 0.0f);
 		go->target = go->pos;
+		AssignPath(go);
 	}
 	else if (b_keyState)
 	{
@@ -218,19 +236,20 @@ void SceneGraph::Update(double dt)
 	}
 
 	// Spawner
-	/*if (spawntimerLab11 >= SPAWN_TIMER)
+	if (Asign2_spawntimer >= SPAWN_TIMER)
 	{
 		{
 			GameObject *go = FetchGO(GameObject::GO_RED);
 			go->Lab11_hp = 1.0f;
 			go->Lab11_range = 1.0f;
 			go->Lab11_damage = 1.0f;
-			go->Lab11_actionTime = 1.0f;
-			AssignPath(go);
-			go->pos.Set(go->path.front().x, go->path.front().y, 0.0f);
+			go->Lab11_actionTime = 1.0f;		
+			//go->pos.Set(go->path.front().x, go->path.front().y, 0.0f);
+			go->pos = m_graph.m_nodes[0]->pos;
 			go->target = go->pos;
+			AssignPath(go);
 		}
-	}*/
+	}
 	
 
 	// Combat
@@ -395,7 +414,7 @@ void SceneGraph::DFSOnce(GameObject * go)
 
 void SceneGraph::RenderFaction()
 {
-	for (auto i : m_goList)
+	for (auto &i : m_goList)
 	{
 		if (i->Lab11_factionType == NULL || i->Lab11_factionType == 0)
 			return;
@@ -432,15 +451,15 @@ void SceneGraph::RenderFaction()
 
 void SceneGraph::RenderGraph()
 {
-	for (auto i : m_graph.m_nodes)
+	for (auto &i : m_graph.m_nodes)
 	{
 		modelStack.PushMatrix();
 		modelStack.Translate(i->pos.x,i->pos.y, i->pos.z);
-		modelStack.Scale(1, 1, 1);
+		modelStack.Scale(2, 2, 2);
 		RenderMesh(meshList[GEO_NODE], false);
 		modelStack.PopMatrix();
 	}
-	for (auto i : m_graph.m_edges)
+	for (auto &i : m_graph.m_edges)
 	{
 		Vector3 dir = m_graph.m_nodes[i->end]->pos - m_graph.m_nodes[i->source]->pos;
 
