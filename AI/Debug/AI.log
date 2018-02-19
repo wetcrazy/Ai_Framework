@@ -1,4 +1,51 @@
-﻿  StateBrain.cpp
+﻿  Utility.cpp
+  StateShark.cpp
+  StatePrisoners.cpp
+  StateFish.cpp
+  StateDefault.cpp
+  StateMachine.cpp
+  StateCop.cpp
+  StateBrain.cpp
+  State.cpp
+  shader.cpp
+  SceneTurn.cpp
+c:\users\ryane\documents\ai_framework\ai\source\sceneturn.cpp(243): warning C4804: '<': unsafe use of type 'bool' in operation
+c:\users\ryane\documents\ai_framework\ai\source\sceneturn.cpp(256): warning C4804: '<': unsafe use of type 'bool' in operation
+c:\users\ryane\documents\ai_framework\ai\source\sceneturn.cpp(269): warning C4804: '<': unsafe use of type 'bool' in operation
+c:\users\ryane\documents\ai_framework\ai\source\sceneturn.cpp(282): warning C4804: '<': unsafe use of type 'bool' in operation
+  SceneTicTacToe.cpp
+  SceneReversi.cpp
+  SceneQueen.cpp
+c:\users\ryane\documents\ai_framework\ai\source\scenequeen.cpp(69): warning C4018: '<': signed/unsigned mismatch
+c:\users\ryane\documents\ai_framework\ai\source\scenequeen.cpp(104): warning C4018: '<': signed/unsigned mismatch
+  SceneMovement.cpp
+  SceneMaze.cpp
+c:\users\ryane\documents\ai_framework\ai\source\scenemaze.cpp(33): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\ryane\documents\ai_framework\ai\source\scenemaze.cpp(185): warning C4018: '<': signed/unsigned mismatch
+c:\users\ryane\documents\ai_framework\ai\source\scenemaze.cpp(226): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\ryane\documents\ai_framework\ai\source\scenemaze.cpp(231): warning C4018: '<': signed/unsigned mismatch
+c:\users\ryane\documents\ai_framework\ai\source\scenemaze.cpp(234): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  SceneGraph.cpp
+c:\users\ryane\documents\ai_framework\ai\source\scenegraph.cpp(116): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\ryane\documents\ai_framework\ai\source\scenegraph.cpp(213): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\ryane\documents\ai_framework\ai\source\scenegraph.cpp(229): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  SceneData.cpp
+  SceneBase.cpp
+  PostOffice.cpp
+  Generating Code...
+c:\users\ryane\documents\ai_framework\ai\source\statemachine.cpp(42): warning C4172: returning address of local variable or temporary
+  Compiling...
+  MeshBuilder.cpp
+  Mesh.cpp
+  Maze.cpp
+c:\users\ryane\documents\ai_framework\ai\source\maze.cpp(96): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+  LoadTGA.cpp
+  LoadOBJ.cpp
+  Graph.cpp
+  GameObject.cpp
+  Camera.cpp
+  Application.cpp
+  Generating Code...
 LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  AI.vcxproj -> C:\Users\160347T\Documents\GitHub\Ai_Framework\Debug\AI.exe
-  AI.vcxproj -> C:\Users\160347T\Documents\GitHub\Ai_Framework\Debug\AI.pdb (Full PDB)
+  AI.vcxproj -> C:\Users\Ryane\Documents\Ai_Framework\Debug\AI.exe

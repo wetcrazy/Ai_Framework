@@ -240,10 +240,9 @@ void SceneGraph::Update(double dt)
 	{
 		{
 			GameObject *go = FetchGO(GameObject::GO_RED);
-			go->Lab11_hp = 1.0f;
-			go->Lab11_range = 1.0f;
-			go->Lab11_damage = 1.0f;
-			go->Lab11_actionTime = 1.0f;		
+			go->Asign2_hp = 1.0f;	
+			go->Asign2_factionType = FACTION_RED;
+			go->Asign2_unitType = UNIT_SCISSOR;
 			//go->pos.Set(go->path.front().x, go->path.front().y, 0.0f);
 			go->pos = m_graph.m_nodes[0]->pos;
 			go->target = go->pos;
@@ -414,12 +413,12 @@ void SceneGraph::DFSOnce(GameObject * go)
 
 void SceneGraph::RenderFaction()
 {
-	for (auto &i : m_goList)
+	for (auto i : m_goList)
 	{
 		if (i->Lab11_factionType == NULL || i->Lab11_factionType == 0)
 			return;
 
-		switch (i->Lab11_factionType)
+		switch (i->Asign2_factionType)
 		{
 		case FACTION_BLUE:
 			modelStack.PushMatrix();
