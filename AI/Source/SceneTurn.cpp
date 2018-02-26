@@ -45,6 +45,24 @@ void SceneTurn::Init()
 
 	m_turn = 0;
 	m_timer = 0.f;
+
+	int x_here, y_here;
+	GameObject *go = FetchGO(GameObject::GO_NPC);
+	go->grid.resize(m_noGrid * m_noGrid);
+	go->visited.resize(m_noGrid * m_noGrid);
+	std::fill(go->grid.begin(), go->grid.end(), Maze::TILE_FOG);
+	std::fill(go->visited.begin(), go->visited.end(), false);
+	do {
+		x_here = Math::RandIntMinMax(0, m_noGrid - 1);
+		y_here = Math::RandIntMinMax(0, m_noGrid - 1);
+	} while (m_maze.m_grid[go->curr.y * m_noGrid + go->curr.x] != Maze::TILE_EMPTY);
+	go->curr.x = x_here;
+	go->curr.y = y_here;
+	go->stack.push_back(go->curr);
+	go->scale.x = m_gridSize;
+	go->scale.y = m_gridSize;
+	go->scale.z = m_gridSize;
+	go->grid[go->curr.y * m_noGrid + go->curr.x] = Maze::TILE_EMPTY;
 }
 
 //GameObject* SceneTurn::FetchGO()

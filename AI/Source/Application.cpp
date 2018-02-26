@@ -130,7 +130,7 @@ Scene *scene;
 void Application::Run()
 {
 	//Main Loop
-	scene = new SceneGraph();
+	scene = new SceneTurn();
 	scene->Init();
 
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame
